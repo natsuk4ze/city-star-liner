@@ -11,8 +11,6 @@
 マクロ定義
 ***************************************/
 #define ACCELEEFFECT_TEX_NAME		"data/TEXTURE/Effect/AccelEffect.png"
-#define ACCELEEFFECT_TEX_DIV		(&D3DXVECTOR2(1.0f, 1.0f))
-#define ACCELEFFECT_SIZE			(&D3DXVECTOR2(3.0f, 25.0f))
 #define ACCELEFFECT_NUM_MAX			(512)
 #define ACCELEFFECT_EMITTER_MAX		(4)
 #define ACCELEFFEFCT_EMIT_NUM		(50)
@@ -22,8 +20,11 @@
 ***************************************/
 void AccelEffectController::Init()
 {
+	D3DXVECTOR2 ACCELEEFFECT_TEX_DIV = D3DXVECTOR2(1.0f, 1.0f);
+	D3DXVECTOR2 ACCELEFFECT_SIZE = D3DXVECTOR2(3.0f, 25.0f);
+
 	//単位頂点バッファ作成、テクスチャ読み込み
-	MakeUnitBuffer(ACCELEFFECT_SIZE, ACCELEEFFECT_TEX_DIV);
+	MakeUnitBuffer(&ACCELEFFECT_SIZE, &ACCELEEFFECT_TEX_DIV);
 	LoadTexture(ACCELEEFFECT_TEX_NAME);
 
 	//パーティクルコンテナ作成

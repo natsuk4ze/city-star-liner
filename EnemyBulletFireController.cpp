@@ -11,8 +11,6 @@
 マクロ定義
 ***************************************/
 #define ENEMYBULLETFIRE_TEX_NAME		"data/TEXTURE/Effect/EnemyBulletFire.png"
-#define ENEMYBULLETFIRE_SIZE			(&D3DXVECTOR2(3.0f, 3.0f))
-#define ENEMYBULLETFIRE_TEX_DIV			(&D3DXVECTOR2(1.0f, 1.0f))
 
 #define ENEMYBULLETFIRE_NUM_MAX			(1024)
 #define ENEMYBULLETFIRE_EMITTER_MAX		(64)
@@ -24,8 +22,10 @@ typedef BaseParticleController Base;
 ***************************************/
 void EnemyBulletFireController::Init()
 {
+	D3DXVECTOR2 ENEMYBULLETFIRE_SIZE = D3DXVECTOR2(3.0f, 3.0f);
+	D3DXVECTOR2 ENEMYBULLETFIRE_TEX_DIV = D3DXVECTOR2(1.0f, 1.0f);
 	//単位頂点バッファ作成、テクスチャ読み込み
-	Base::MakeUnitBuffer(ENEMYBULLETFIRE_SIZE, ENEMYBULLETFIRE_TEX_DIV);
+	Base::MakeUnitBuffer(&ENEMYBULLETFIRE_SIZE, &ENEMYBULLETFIRE_TEX_DIV);
 	Base::LoadTexture(ENEMYBULLETFIRE_TEX_NAME);
 
 	//パーティクルコンテナ作成

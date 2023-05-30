@@ -17,9 +17,6 @@
 #define PLAYERBOMBERPARTICLE_NUM_MAX		(1024)
 #define PLAYERBOMBERPARTICLE_EMITTER_MAX	(128)
 
-#define PLAYERBOMBERPARTICLE_SIZE			(&D3DXVECTOR2(7.5f, 7.5f))
-#define PLAYERBOMBERPARTICLE_TEX_DIV		(&D3DXVECTOR2(1.0f, 1.0f))
-
 /************************************************
 構造体定義
 *************************************************/
@@ -33,8 +30,10 @@ typedef BaseParticleController Base;
 *************************************************/
 void PlayerBomberParticleController::Init()
 {
+	D3DXVECTOR2 PLAYERBOMBERPARTICLE_SIZE = D3DXVECTOR2(7.5f, 7.5f);
+	D3DXVECTOR2 PLAYERBOMBERPARTICLE_TEX_DIV = D3DXVECTOR2(1.0f, 1.0f);
 	//単位頂点バッファ作成、テクスチャ読み込み
-	Base::MakeUnitBuffer(PLAYERBOMBERPARTICLE_SIZE, PLAYERBOMBERPARTICLE_TEX_DIV);
+	Base::MakeUnitBuffer(&PLAYERBOMBERPARTICLE_SIZE, &PLAYERBOMBERPARTICLE_TEX_DIV);
 	Base::LoadTexture(PLAYERBOMBERPARTICLE_TEXTURE_NAME);
 
 	//パーティクルコンテナを準備

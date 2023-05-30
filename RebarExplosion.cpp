@@ -16,7 +16,8 @@ RebarExplosionコンストラクタ
 ***************************************/
 RebarExplosion::RebarExplosion()
 {
-	SetAnimParameter(&D3DXVECTOR2(8.0f, 8.0f));
+	D3DXVECTOR2 temp = D3DXVECTOR2(8.0f, 8.0f);
+	SetAnimParameter(&temp);
 }
 
 /**************************************
@@ -85,7 +86,10 @@ RebarExplosionController初期化処理
 ***************************************/
 void RebarExplosionController::Init()
 {
-	MakeUnitBuffer(&D3DXVECTOR2(25.0f, 25.0f), &D3DXVECTOR2(8.0f, 8.0f));
+	D3DXVECTOR2 temp = D3DXVECTOR2(25.0f, 25.0f);
+	D3DXVECTOR2 temp2 = D3DXVECTOR2(8.0f, 8.0f);
+
+	MakeUnitBuffer(&temp, &temp2);
 	LoadTexture("data/TEXTURE/Effect/ExplosionFire.png");
 
 	particleContainer.resize(256);

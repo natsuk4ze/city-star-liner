@@ -16,10 +16,7 @@ using namespace std;
 #define SCOREPARTICLE_NUM_MAX		(256)
 #define SCOREPARTICLE_EMITTER_MAX	(32)
 
-#define SCOREPARTICLE_SIZE			(&D3DXVECTOR2(10.0f, 10.0f))
-
 #define SCOREPARTICLE_TEX_NAME		("data/TEXTURE/Effect/ScoreParticle.png")
-#define SCOREPARTICLE_TEX_DIV		(&D3DXVECTOR2(1.0f, 1.0f))
 
 #define SCOREPARTICLE_LIFEFRAME		(40)
 #define SCOREPARTICLE_LIFE_RANGE	(10)
@@ -48,9 +45,11 @@ typedef BaseParticleController Base;
 ***************************************/
 void ScoreParticleController::Init()
 {
+	D3DXVECTOR2 SCOREPARTICLE_SIZE = D3DXVECTOR2(10.0f, 10.0f);
+	D3DXVECTOR2 SCOREPARTICLE_TEX_DIV = D3DXVECTOR2(1.0f, 1.0f);
 	//テクスチャ読み込み、単位頂点バッファ作成
 	LoadTexture(SCOREPARTICLE_TEX_NAME);
-	MakeUnitBuffer(SCOREPARTICLE_SIZE, SCOREPARTICLE_TEX_DIV);
+	MakeUnitBuffer(&SCOREPARTICLE_SIZE, &SCOREPARTICLE_TEX_DIV);
 
 	//パーティクルコンテナを準備
 	particleContainer.resize(SCOREPARTICLE_NUM_MAX);

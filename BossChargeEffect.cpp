@@ -15,7 +15,8 @@ BossChargeParticleコンストラクタ
 ***************************************/
 BossChargeParticle::BossChargeParticle()
 {
-	SetAnimParameter(&D3DXVECTOR2(8.0f, 8.0f));
+	D3DXVECTOR2 temp = D3DXVECTOR2(8.0f, 8.0f);
+	SetAnimParameter(&temp);
 }
 
 /**************************************
@@ -84,7 +85,11 @@ BossChargeParticleController初期化
 ***************************************/
 void BossChargeParticleController::Init()
 {
-	MakeUnitBuffer(&D3DXVECTOR2(30.0f, 30.0f), &D3DXVECTOR2(8.0f, 8.0f));
+	D3DXVECTOR2 temp1 = D3DXVECTOR2(30.0f, 30.0f);
+	D3DXVECTOR2 temp2 = D3DXVECTOR2(8.0f, 8.0f);
+
+	MakeUnitBuffer(&temp1, &temp2);
+	MakeUnitBuffer(&temp1, &temp2);
 	LoadTexture("data/TEXTURE/EFFECT/EnemyBulletCharge.png");
 
 	particleContainer.resize(1023);

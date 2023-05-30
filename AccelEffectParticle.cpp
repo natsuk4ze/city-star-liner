@@ -33,7 +33,8 @@ void AccelEffectParticle::Init()
 
 	//回転
 	float dir = moveDir.x > 0.0f ? 1.0f : -1.0f;
-	float dot = D3DXVec3Dot(&moveDir, &D3DXVECTOR3(0.0f, 1.0f, 0.0f));
+	D3DXVECTOR3 vecUp = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
+	float dot = D3DXVec3Dot(&moveDir, &vecUp);
 	transform.Rotate(0.0f, 0.0f, D3DXToDegree(acosf(dot)) * dir);
 
 	//座標オフセット

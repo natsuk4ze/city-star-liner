@@ -140,10 +140,10 @@ void BossColliderController::OnNotified(ObserveSubject* notifier)
 	right.z = left.z = posZ;
 	D3DXVECTOR3 offset = right - left;
 	offset /= 10.0f;
-
+	D3DXVECTOR3 temp = left + offset;
 	for (int i = 0; i < 10; i++)
 	{
-		GameParticleManager::Instance()->SetBossHit(&(left + offset));
+		GameParticleManager::Instance()->SetBossHit(&temp);
 		left += offset;
 	}
 

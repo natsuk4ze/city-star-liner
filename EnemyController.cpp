@@ -321,11 +321,11 @@ void EnemyController::SetChageEffect(EnemyModel *model)
 	model->chageEffectList.clear();
 	model->chageEffectList.resize(model->enemyList.size());
 
-
 	UINT cntSet = 0;
 	for (auto& enemey : model->enemyList)
 	{
-		BaseEmitter* emitter = GameParticleManager::Instance()->SetEnemyBulletCharge(&(enemey->m_Pos + ENEMY_SHOTPOS_OFFSET));
+		D3DXVECTOR3 pos = (enemey->m_Pos + ENEMY_SHOTPOS_OFFSET);
+		BaseEmitter* emitter = GameParticleManager::Instance()->SetEnemyBulletCharge(&pos);
 		model->chageEffectList[cntSet] = emitter;
 		cntSet++;
 	}

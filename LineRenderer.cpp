@@ -69,9 +69,10 @@ void LineRenderer::Init(D3DXVECTOR3 *right, D3DXVECTOR3 *left, float width)
 	//始点と終点を結ぶ線分を計算し、長さを半分にする
 	D3DXVECTOR3 diff = *left - *right;
 	diff /= 2.0f;
+	D3DXVECTOR3 pos = D3DXVECTOR3(0.0f, 0.0f, 1.0f);
 
 	//線分に垂直なベクトルを求める
-	D3DXVec3Cross(&vtxUp, &D3DXVECTOR3(0.0f, 0.0f, 1.0f), &diff);
+	D3DXVec3Cross(&vtxUp, &pos, &diff);
 	D3DXVec3Normalize(&vtxUp, &vtxUp);
 
 	//求めたベクトルから頂点座標を計算
