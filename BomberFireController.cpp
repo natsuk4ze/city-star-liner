@@ -11,8 +11,7 @@
 マクロ定義
 ***************************************/
 #define BOBMERFIRE_TEXTURE_NAME		"data/TEXTURE/Effect/BomberFire.png"
-#define BOMBERFIRE_TEXTURE_DIV		(&D3DXVECTOR2(8.0f, 8.0f))
-#define BOMBERFIRE_SIZE				(&D3DXVECTOR2(5.0f, 5.0f))
+
 #define BOMBERFIRE_NUM_MAX			(512)
 #define BOMBERFIRE_EMITTER_NUM		(1)
 #define BOMBERFIRE_EMIT_NUM			(170)
@@ -22,8 +21,10 @@
 ***************************************/
 void BomberFireController::Init()
 {
+	D3DXVECTOR2 BOMBERFIRE_TEXTURE_DIV = D3DXVECTOR2(8.0f, 8.0f);
+	D3DXVECTOR2 BOMBERFIRE_SIZE = D3DXVECTOR2(5.0f, 5.0f);
 	//単位頂点バッファ作成、テクスチャロード
-	MakeUnitBuffer(BOMBERFIRE_SIZE, BOMBERFIRE_TEXTURE_DIV);
+	MakeUnitBuffer(&BOMBERFIRE_SIZE, &BOMBERFIRE_TEXTURE_DIV);
 	LoadTexture(BOBMERFIRE_TEXTURE_NAME);
 
 	//パラメータコンテナ作成

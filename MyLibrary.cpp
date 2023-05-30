@@ -577,5 +577,6 @@ void CalcScreenToWorld(D3DXVECTOR3 *pOut, const D3DXVECTOR3 *screenPos, float f)
 
 	//座標を変換
 	D3DXMATRIX tmp = invViewport * invProj * invView;
-	D3DXVec3TransformCoord(pOut, &D3DXVECTOR3(screenPos->x, screenPos->y, f), &tmp);
+	D3DXVECTOR3 pos = D3DXVECTOR3(screenPos->x, screenPos->y, f);
+	D3DXVec3TransformCoord(pOut, &pos, &tmp);
 }

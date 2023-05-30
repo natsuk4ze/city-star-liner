@@ -396,7 +396,8 @@ void  PlayerObserver::FirePlayerBomber(std::list<std::shared_ptr<RebarObstacle>>
 void PlayerObserver::OnStartAccel()
 {
 	const D3DXVECTOR3 EffectPos = D3DXVECTOR3(0.0f, 10.0f, 50.0f);
-	GameParticleManager::Instance()->SetAccelEffect(&(player->transform.pos + EffectPos));
+	D3DXVECTOR3 pos = (player->transform.pos + EffectPos);
+	GameParticleManager::Instance()->SetAccelEffect(&pos);
 }
 
 /**************************************

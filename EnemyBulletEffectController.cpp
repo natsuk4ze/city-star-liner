@@ -14,8 +14,6 @@ using namespace std;
 /**************************************
 マクロ定義
 ***************************************/
-#define ENEMYBULLETEFFECT_SIZE		(&D3DXVECTOR2(5.0f, 5.0f))
-#define ENEMYBULLETEFFECT_TEX_DIV	(&D3DXVECTOR2(8.0f, 8.0f))
 #define ENEMYBULLETEFFECT_TEX_NAME	"data/TEXTURE/Effect/EnemyBulletEffect.png"
 #define ENEMYBULLETEFFECT_NUM_MAX	(1024)
 
@@ -30,8 +28,10 @@ typedef BaseParticleController Base;
 ***************************************/
 void EnemyBulletEffectController::Init()
 {
+	D3DXVECTOR2 ENEMYBULLETEFFECT_SIZE = D3DXVECTOR2(5.0f, 5.0f);
+	D3DXVECTOR2 ENEMYBULLETEFFECT_TEX_DIV = D3DXVECTOR2(8.0f, 8.0f);
 	//単位頂点作成、テクスチャ読み込み
-	Base::MakeUnitBuffer(ENEMYBULLETEFFECT_SIZE, ENEMYBULLETEFFECT_TEX_DIV);
+	Base::MakeUnitBuffer(&ENEMYBULLETEFFECT_SIZE, &ENEMYBULLETEFFECT_TEX_DIV);
 	Base::LoadTexture(ENEMYBULLETEFFECT_TEX_NAME);
 
 	//パーティクルコンテナ作成
@@ -39,7 +39,7 @@ void EnemyBulletEffectController::Init()
 	for (auto& particle : particleContainer)
 	{
 		particle = new EnemyBulletEffect();
-		static_cast<EnemyBulletEffect*>(particle)->SetAnimParameter(ENEMYBULLETEFFECT_TEX_DIV);
+		static_cast<EnemyBulletEffect*>(particle)->SetAnimParameter(&ENEMYBULLETEFFECT_TEX_DIV);
 	}
 
 	//エミッターコンテナ作成

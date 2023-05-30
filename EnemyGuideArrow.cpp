@@ -14,8 +14,6 @@
 #define ENEMYGUIDEARROW_LIFEFRAME		(30)
 #define ENEMYGUIDEARROW_INTERVAL		(1)
 
-#define ENEMYGUIDEARROW_BASE_VECTOR		(&D3DXVECTOR3(0.0f, 1.0f, 0.0f))
-
 /**************************************
 EnemyGuideArrowコンストラクタ
 ***************************************/
@@ -108,6 +106,8 @@ EnemyGuideArrowEmitter初期化処理
 ***************************************/
 void EnemyGuideArrowEmitter::Init(D3DXVECTOR3 start, D3DXVECTOR3 end)
 {
+	D3DXVECTOR3 ENEMYGUIDEARROW_BASE_VECTOR = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
+
 	cntFrame = 0;
 	cntArrow = 0;
 	active = true;
@@ -119,7 +119,7 @@ void EnemyGuideArrowEmitter::Init(D3DXVECTOR3 start, D3DXVECTOR3 end)
 	D3DXVec3Normalize(&diff, &diff);
 
 	int dir = diff.x < 0 ? 1 : -1;
-	float rotRadian = dir * acosf(D3DXVec3Dot(ENEMYGUIDEARROW_BASE_VECTOR, &diff));
+	float rotRadian = dir * acosf(D3DXVec3Dot(&ENEMYGUIDEARROW_BASE_VECTOR, &diff));
 
 	transform.IdentifyRotation();
 	transform.Rotate(0.0f, 0.0f, D3DXToDegree(rotRadian));

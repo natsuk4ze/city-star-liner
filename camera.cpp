@@ -124,5 +124,6 @@ void Camera::Projection(D3DXVECTOR3& out, const D3DXVECTOR3& pos)
 ***************************************/
 void Camera::UnProjection(D3DXVECTOR3& out, const D3DXVECTOR3& pos, float z)
 {
-	D3DXVec3TransformCoord(&out, &D3DXVECTOR3(pos.x, pos.y, z), &invVPV);
+	D3DXVECTOR3 temp = D3DXVECTOR3(pos.x, pos.y, z);
+	D3DXVec3TransformCoord(&out, &temp, &invVPV);
 }

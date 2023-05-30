@@ -10,6 +10,7 @@
 #include "..\main.h"
 #include "BaseSingleton.h"
 #include <map>
+#include <string>
 
 /**************************************
 ‘O•ûéŒ¾

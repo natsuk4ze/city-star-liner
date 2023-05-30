@@ -15,7 +15,8 @@ ExplosionFireコンストラクタ
 ***************************************/
 ExplosionFire::ExplosionFire()
 {
-	SetAnimParameter(&D3DXVECTOR2(8.0f, 8.0f));
+	D3DXVECTOR2 temp = D3DXVECTOR2(8.0f, 8.0f);
+	SetAnimParameter(&temp);
 	speed = RandomRangef(5.0f, 20.0f);
 	moveDir.x = RandomRangef(-1.0f, 1.0f);
 	moveDir.y = RandomRangef(-1.0f, 1.0f);
@@ -89,7 +90,10 @@ ExplosionFireController初期化処理
 ***************************************/
 void ExplosionFireController::Init()
 {
-	MakeUnitBuffer(&D3DXVECTOR2(300.0f, 300.0f), &D3DXVECTOR2(8.0f, 8.0f));
+	D3DXVECTOR2 temp = D3DXVECTOR2(300.0f, 300.0f);
+	D3DXVECTOR2 temp2 = D3DXVECTOR2(8.0f, 8.0f);
+
+	MakeUnitBuffer(&temp, &temp2);
 	LoadTexture("data/TEXTURE/Effect/ExplosionFire.png");
 
 	particleContainer.resize(1024);

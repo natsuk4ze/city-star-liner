@@ -41,7 +41,10 @@ TutorialEnemyModel::TutorialEnemyModel(LineTrailModel model, int enemyNum):
 
 	//ラインに対して垂直なベクトルを求める
 	D3DXVECTOR3 cross;
-	D3DXVec3Cross(&cross, &(edgeL - edgeR), &D3DXVECTOR3(0.0f, 0.0f, 1.0f));
+	D3DXVECTOR3 pos = D3DXVECTOR3(0.0f, 0.0f, 1.0f);
+	D3DXVECTOR3 edgePos = (edgeL - edgeR);
+
+	D3DXVec3Cross(&cross, &edgePos, &pos);
 	D3DXVec3Normalize(&cross, &cross);
 
 	//初期座標を計算
