@@ -25,7 +25,7 @@ using namespace std;
 /**************************************
 マクロ定義
 ***************************************/
-#define PLAYER_MODEL				"data/MODEL/player.x"
+#define PLAYER_MODEL				"data/MODEL/Player.x"
 #define PLAYER_DAMAGE				(10.0f)		//プレイヤーが1回の被弾で受けるダメージ
 #define PLAYER_INVINCIBLE_DURATION	(300)		//プレイヤーの無敵時間
 
