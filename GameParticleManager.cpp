@@ -306,23 +306,32 @@ void GameParticleManager::DrawDebugWindow(void)
 	BeginDebugWindow("GameParticle");
 
 	{
-		if (DebugButton("ScoreParticle"))
-			controllers[0]->SetEmitter(&D3DXVECTOR3(0.0f, 0.0f, 50.0f));
+		if (DebugButton("ScoreParticle")) {
+			D3DXVECTOR3 pos = D3DXVECTOR3(0.0f, 0.0f, 50.0f);
+			controllers[0]->SetEmitter(&pos);
+		}
+		
 	}
 
 	{
-		if (DebugButton("EnemyExplosion"))
-			SetEnemyExplosion(&D3DXVECTOR3(0.0f, 0.0f, 250.0f));
+		if (DebugButton("EnemyExplosion")) {
+			D3DXVECTOR3 pos = D3DXVECTOR3(0.0f, 0.0f, 250.0f);
+			SetEnemyExplosion(&pos);
+		}
 	}
 
 	{
-		if (DebugButton("PlayerCharge"))
-			SetPlayerCharge(&D3DXVECTOR3(50.0f, 50.0f, 50.0f));
+		if (DebugButton("PlayerCharge")) {
+			D3DXVECTOR3 pos = D3DXVECTOR3(50.0f, 50.0f, 50.0f);
+			SetPlayerCharge(&pos);
+		}
 	}
 
 	{
-		if (DebugButton("Accel"))
-			SetAccelEffect(&D3DXVECTOR3(0.0f, 0.0f, 50.0f));
+		if (DebugButton("Accel")) {
+			D3DXVECTOR3 pos = D3DXVECTOR3(0.0f, 0.0f, 50.0f);
+			SetAccelEffect(&pos);
+		}
 	}
 
 	EndDebugWindow("GameParticle");

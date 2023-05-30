@@ -16,7 +16,8 @@ BomberFireコンストラクタ
 ***************************************/
 BomberFire::BomberFire()
 {
-	SetAnimParameter(&D3DXVECTOR2(8.0f, 8.0f));
+	D3DXVECTOR2 temp = D3DXVECTOR2(8.0f, 8.0f);
+	SetAnimParameter(&temp);
 
 	moveDir.x = RandomRangef(-1.0f, 1.0f);
 	moveDir.y = RandomRangef(-1.0f, 1.0f);

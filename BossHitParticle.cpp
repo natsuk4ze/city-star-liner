@@ -84,7 +84,10 @@ BossHitParticleControllerèâä˙âªèàóù
 ***************************************/
 void BossHitParticleController::Init()
 {
-	MakeUnitBuffer(&D3DXVECTOR2(5.0f, 5.0f), &D3DXVECTOR2(1.0f, 1.0f));
+	D3DXVECTOR2 temp = D3DXVECTOR2(5.0f, 5.0f);
+	D3DXVECTOR2 temp2= D3DXVECTOR2(1.0f, 1.0f);
+
+	MakeUnitBuffer(&temp, &temp2);
 	LoadTexture("data/TEXTURE/Effect/EnemyBulletFire.png");
 
 	particleContainer.resize(1024);

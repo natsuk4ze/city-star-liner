@@ -179,7 +179,8 @@ void PlayerBullet::SetEdgePos(LineTrailModel model)
 	diff /= 2.0f;
 
 	//線分に垂直なベクトルを求める
-	D3DXVec3Cross(&vtxUp, &D3DXVECTOR3(0.0f, 0.0f, 1.0f), &diff);
+	D3DXVECTOR3 pos = D3DXVECTOR3(0.0f, 0.0f, 1.0f);
+	D3DXVec3Cross(&vtxUp, &pos, &diff);
 	D3DXVec3Normalize(&vtxUp, &vtxUp);
 
 	//求めたベクトルから頂点座標を計算

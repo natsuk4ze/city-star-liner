@@ -12,10 +12,7 @@
 /**************************************
 マクロ定義
 ***************************************/
-#define PLAYERCHARGEEFFECT_SIZE			(&D3DXVECTOR2(15.0f, 15.0f))
-
 #define PLAYERCHARGEEFFECT_TEX_NAME		"data/TEXTURE/Effect/PlayerCharge.png"
-#define PLAYERCHARGEFEFECT_TEX_DIV		(&D3DXVECTOR2(8.0f, 8.0f))
 
 #define PLAYERCHARGEEFFECT_NUM_MAX		(128)
 #define PLAYERCHARGEEFFECT_EMITTER_MAX	(4)
@@ -26,16 +23,18 @@
 ***************************************/
 void PlayerChargeEffectController::Init()
 {
+	D3DXVECTOR2 PLAYERCHARGEEFFECT_SIZE = D3DXVECTOR2(15.0f, 15.0f);
+	D3DXVECTOR2 PLAYERCHARGEFEFECT_TEX_DIV = D3DXVECTOR2(8.0f, 8.0f);
 	//単位頂点バッファ作成、テクスチャ読み込み
 	LoadTexture(PLAYERCHARGEEFFECT_TEX_NAME);
-	MakeUnitBuffer(PLAYERCHARGEEFFECT_SIZE, PLAYERCHARGEFEFECT_TEX_DIV);
+	MakeUnitBuffer(&PLAYERCHARGEEFFECT_SIZE, &PLAYERCHARGEFEFECT_TEX_DIV);
 
 	//パーティクルコンテナ作成
 	particleContainer.resize(PLAYERCHARGEEFFECT_NUM_MAX);
 	for (auto& particle : particleContainer)
 	{
 		particle = new PlayerChargeEffect();
-		static_cast<PlayerChargeEffect*>(particle)->SetAnimParameter(PLAYERCHARGEFEFECT_TEX_DIV);
+		static_cast<PlayerChargeEffect*>(particle)->SetAnimParameter(&PLAYERCHARGEFEFECT_TEX_DIV);
 	}
 
 	//エミッターコンテナ作成

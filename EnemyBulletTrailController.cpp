@@ -10,8 +10,6 @@
 /**************************************
 マクロ定義
 ***************************************/
-#define ENEMYBULLETTRAIL_SIZE			(&D3DXVECTOR2(10.0f, 10.0f))
-#define ENEMYBULLETTRAIL_TEX_DIV		(&D3DXVECTOR2(8.0f, 8.0f))
 #define ENEMYBULLETTRAIL_TEX_NAME		"data/TEXTURE/Effect/EnemyBulletTrail.png"
 #define ENEMYBULLETTRAIL_NUM_MAX		(1024)
 #define ENEMYBULLETTRAIL_EMITTER_MAX	(32)
@@ -23,8 +21,10 @@ typedef BaseParticleController Base;
 ***************************************/
 void EnemyBulletTrailController::Init()
 {
+	D3DXVECTOR2 ENEMYBULLETTRAIL_SIZE = D3DXVECTOR2(10.0f, 10.0f);
+	D3DXVECTOR2 ENEMYBULLETTRAIL_TEX_DIV	= D3DXVECTOR2(8.0f, 8.0f);
 	//頂点バッファ設定、テクスチャ読み込み
-	Base::MakeUnitBuffer(ENEMYBULLETTRAIL_SIZE, ENEMYBULLETTRAIL_TEX_DIV);
+	Base::MakeUnitBuffer(&ENEMYBULLETTRAIL_SIZE, &ENEMYBULLETTRAIL_TEX_DIV);
 	Base::LoadTexture(ENEMYBULLETTRAIL_TEX_NAME);
 
 	//パーティクルコンテナ作成
@@ -32,7 +32,7 @@ void EnemyBulletTrailController::Init()
 	for (auto& particle : particleContainer)
 	{
 		particle = new EnemyBulletTrail();
-		static_cast<AnimationParticle*>(particle)->SetAnimParameter(ENEMYBULLETTRAIL_TEX_DIV);
+		static_cast<AnimationParticle*>(particle)->SetAnimParameter(&ENEMYBULLETTRAIL_TEX_DIV);
 	}
 
 	//エミッターコンテナ作成

@@ -17,8 +17,6 @@
 #define ENEMYEXPLOSION_NUM_MAX			(256)
 #define ENEMYEXPLOSION_EMITTER_MAX		(64)
 
-#define ENEMYEXPLOSION_SIZE				(&D3DXVECTOR2(15.0f, 15.0f))
-#define ENEMYEXPLOSION_TEX_DIV			(&D3DXVECTOR2(8.0f, 8.0f))
 
 #define ENEMYEXPLOSION_EMIT_NUM			(3)
 
@@ -29,8 +27,10 @@ typedef BaseParticleController Base;
 ***************************************/
 void EnemyExplosionController::Init()
 {
+	D3DXVECTOR2 ENEMYEXPLOSION_SIZE = D3DXVECTOR2(15.0f, 15.0f);
+	D3DXVECTOR2 ENEMYEXPLOSION_TEX_DIV = D3DXVECTOR2(8.0f, 8.0f);
 	//単位頂点バッファ作成、テクスチャ読み込み
-	Base::MakeUnitBuffer(ENEMYEXPLOSION_SIZE, ENEMYEXPLOSION_TEX_DIV);
+	Base::MakeUnitBuffer(&ENEMYEXPLOSION_SIZE, &ENEMYEXPLOSION_TEX_DIV);
 	Base::LoadTexture(ENEMYEXPLOSION_TEXTURE_NAME);
 
 	//パーティクルコンテナを準備
@@ -38,7 +38,7 @@ void EnemyExplosionController::Init()
 	for (auto& particle : particleContainer)
 	{
 		particle = new EnemyExplosionParticle();
-		static_cast<EnemyExplosionParticle*>(particle)->SetAnimParameter(ENEMYEXPLOSION_TEX_DIV);
+		static_cast<EnemyExplosionParticle*>(particle)->SetAnimParameter(&ENEMYEXPLOSION_TEX_DIV);
 	}
 
 	//エミッタコンテナを準備

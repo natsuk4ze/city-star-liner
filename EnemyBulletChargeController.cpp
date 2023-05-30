@@ -17,25 +17,24 @@
 
 #define ENEMYBULLETCHARGE_EMIT_NUM		(2)
 
-#define ENEMYBULLETCHARGE_SIZE			(&D3DXVECTOR2(2.0f, 2.0f))
-#define ENEMYBULLETCHARGE_TEX_DIV		(&D3DXVECTOR2(8.0f, 8.0f))
-
 typedef BaseParticleController Base;
 /**************************************
 初期化処理
 ***************************************/
 void EnemyBulletChargeController::Init()
 {
+	D3DXVECTOR2 ENEMYBULLETCHARGE_SIZE = D3DXVECTOR2(2.0f, 2.0f);
+	D3DXVECTOR2 ENEMYBULLETCHARGE_TEX_DIV = D3DXVECTOR2(8.0f, 8.0f);
 	//単位頂点バッファ作成、テクスチャ読み込み
 	Base::LoadTexture(ENEMYBULLETCHARGE_TEX_NAME);
-	Base::MakeUnitBuffer(ENEMYBULLETCHARGE_SIZE, ENEMYBULLETCHARGE_TEX_DIV);
+	Base::MakeUnitBuffer(&ENEMYBULLETCHARGE_SIZE,&ENEMYBULLETCHARGE_TEX_DIV);
 
 	//パーティクルコンテナ作成
 	particleContainer.resize(ENEMYBULLETCHARGE_NUM_MAX);
 	for (auto& particle : particleContainer)
 	{
 		particle = new EnemyBulletCharge();
-		static_cast<EnemyBulletCharge*>(particle)->SetAnimParameter(ENEMYBULLETCHARGE_TEX_DIV);
+		static_cast<EnemyBulletCharge*>(particle)->SetAnimParameter(&ENEMYBULLETCHARGE_TEX_DIV);
 	}
 
 	//エミッターコンテナ作成
