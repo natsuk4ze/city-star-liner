@@ -1,6 +1,6 @@
 # City Star Liner🌌
 
-Hi👋 City Star Liner is 3D shooting game created by the team [_RedCopper👒_](#license) at [HAL Tokyo🏫](https://www.hal.ac.jp/tokyo) using DirectX.
+Hi👋 City Star Liner is 3D shooting game created by the team _RedCopper👒_(members below) at [HAL Tokyo🏫](https://www.hal.ac.jp/tokyo) using DirectX.
 Draw the trail and defeat the enemy.
  
  <img src="https://github.com/natsuk4ze/city-star-liner/blob/master/readme-assets/showcase.gif" alt="showcase" width="800"/>
